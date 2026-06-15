@@ -12,14 +12,14 @@ OWNER_USERNAME = 'JapaneseFury'
 START_TEXT="""
 I'm Batch-Txt Extractor bot....!
 
-🚀 Made By @sakshambhaiya🚀
+🚀 Made By @JapaneseFury🚀
 
 Usage : First select the app listed below. ⤵️
 """
 START_TEXT1="""
 I'm Batch-Txt Extractor bot....!
 
-🎯 Made By @sakshambhaiya 🎯
+🎯 Made By @JapaneseFury 🎯
 🔰  Now, select the course listed below. 📌
 """
 START_TEXTCP="""
@@ -43,5 +43,5 @@ I'm Batch extractor bot...!
 
 /helper - For Extracting Txts.
 
-⚠️ Save this id » @sakshambhaiya in case of Copyright infringement.
+⚠️ Save this id » @JapaneseFury in case of Copyright infringement.
 """
