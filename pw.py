@@ -408,7 +408,7 @@ async def process_pwwp(bot: Client, m: Message, user_id: int):
                     await editable.delete(True)
                                 
                          
-                    caption = f"**Batch Name : ```\n{selected_batch_name}``````\nTime Taken : {formatted_time}``````\nExtracted By : Chutiya```**"
+                    caption = f"**Batch Name : ```\n{selected_batch_name}``````\nTime Taken : {formatted_time}``````\nExtracted By : @SmartBoy_ApnaMS```**"
                                 
                     files = [f"{clean_file_name}.{ext}" for ext in ["txt", "zip", "json"]]
                     for file in files:
