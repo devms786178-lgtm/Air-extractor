@@ -12,6 +12,7 @@ from appx_v3 import *
 from appxw import *
 from config import *
 from pyrogram.errors import FloodWait
+from flask import Flask
 import time 
 from datetime import datetime
 from khan import *
@@ -167,7 +168,7 @@ async def remove_admin_command(_, message):
 👤 **User:** {user.mention}  
 ⚡ **User ID:** `{user_id}`  
 
-__**Powered by ★·.·★ Ⓢⓐⓚⓢⓗⓐⓜ Ⓑⓗⓐⓘⓨⓐ ★·.·★**__"""
+__**Powered by ★·.·★ @SmartBoy_ApnaMS ★·.·★**__"""
 
         await message.reply_text(success_msg, disable_web_page_preview=True)
 
@@ -256,7 +257,7 @@ def main_keyboard():
             InlineKeyboardButton("💠 𝐏𝐫𝐞𝐦𝐢𝐮�{m 𝐙𝐨𝐧𝐞 ✨", callback_data="premium_menu"),
         ],
         
-        [InlineKeyboardButton("📩 𝐍𝐞𝐞𝐝 𝐇𝐞𝐥𝐩? 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 💬", url="https://t.me/scammerbotaccess")],
+        [InlineKeyboardButton("📩 𝐍𝐞𝐞𝐝 𝐇𝐞𝐥𝐩? 𝐂𝐨𝐧𝐭𝐚𝐜𝐭 𝐒𝐮𝐩𝐩𝐨𝐫𝐭 💬", url="https://t.me/SmartBoy_ApnaMS")],
     ]
     
     return InlineKeyboardMarkup(keyboard)
@@ -329,7 +330,7 @@ async def start(bot: Client, m: Message):
                 "╰➤ 🟤 **KHAN SIR** – Unlocked Content!\n\n"
                 "⚡ **No Encryption – Just Click & Access!**\n\n"
                 "💬 **Need Help? Have Questions?**\n"
-                "📩 **DM for Instant Support:** [Click Here](https://t.me/botsupdatesbynaruto)\n\n"
+                "📩 **DM for Instant Support:** [Click Here](https://t.me/SmartBoy_ApnaMS)\n\n"
                 "📌 **Press /extract to See Available Apps & Start Extracting!** 👇"
             ),
             quote=True,
@@ -367,7 +368,7 @@ async def helper(bot: Client, m: Message):
                 "🎯 **How to Use?**\n"
                 "🔹 *Simply tap on a button below to get started!*\n\n"
                 "📢 **Need Assistance?**\n"
-                "💬 **DM Support:** [Click Here](https://t.me/botsupdatesbynaruto)\n\n"
+                "💬 **DM Support:** [Click Here](https://t.me/SmartBoy_ApnaMS)\n\n"
                 "👇 **Choose an option below & start extracting!**"
             ),
             quote=True,
@@ -791,5 +792,20 @@ async def process_pwjsontotxt(bot: Client, m: Message, user_id: int):
         await editable.delete(True)
         await m.reply_text(f"**🔰Done🔰**")
         logging.info(f"Finished processing JSON from user {user_id}")
+
+# ─── Flask keep-alive server for Render ───────────────────────────────────────
+flask_app = Flask(name)
+
+@flask_app.route('/')
+def index():
+    return 'Bot is running!'
+
+def run_flask():
+    port = int(os.environ.get("PORT", 8000))
+    flask_app.run(host="0.0.0.0", port=port)
+
+# Start Flask in background thread so Render detects open port
+threading.Thread(target=run_flask, daemon=True).start()
+# ─────────────────────────────────────────
 
 bot.run()
