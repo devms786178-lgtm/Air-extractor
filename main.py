@@ -1,3 +1,5 @@
+import os
+import threading
 from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, CallbackQuery
 from concurrent.futures import ThreadPoolExecutor
